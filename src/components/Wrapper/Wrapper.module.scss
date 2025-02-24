@@ -1,0 +1,13 @@
+@use "../../styles/mixins" as m;
+@use "../../styles/placeholders";
+
+.wrapperStyling {
+  h2 {
+    text-align: center;
+    @extend %trebuchet;
+  }
+  &.estateShowcase {
+    margin-top: -4rem;
+    z-index: 99;
+  }
+}

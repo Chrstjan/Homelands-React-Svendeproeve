@@ -1,0 +1,40 @@
+@use "../../styles/mixins" as m;
+@use "../../styles/variables" as *;
+@use "../../styles/placeholders";
+
+.employeeStyling {
+  @include m.flexBox(column, center, center, 0.5rem);
+  @extend %trebuchet;
+  border: 1px solid #00000044;
+  img {
+    width: 100%;
+  }
+
+  figcaption {
+    border-top: 1px solid #00000044;
+    width: 100%;
+    text-align: center;
+    background: #ffffffb4;
+    margin-top: -6rem;
+
+    .contactInfo {
+      display: none;
+
+      p {
+        margin: 0;
+      }
+    }
+  }
+
+  &:hover {
+    figcaption {
+      background: #130701c0;
+      color: $white;
+    }
+    .contactInfo {
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+    }
+  }
+}

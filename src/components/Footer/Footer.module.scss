@@ -4,9 +4,9 @@
 
 .footerStyling {
   @include m.flexBox(column, center, center, 1rem);
-  position: absolute;
-  bottom: 0;
   width: 100vw;
+  position: static;
+  bottom: 0;
   background: $black;
   color: $white;
   @extend %trebuchet;

@@ -17,8 +17,8 @@ export const MainLayout = () => {
         <Searchbar isNavHidden={isNavHidden} />
         <BurgerMenu setIsNavHidden={setIsNavHidden} />
       </Header>
-      <Footer />
       <Outlet />
+      <Footer />
     </>
   );
 };

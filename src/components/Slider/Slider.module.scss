@@ -1,0 +1,12 @@
+@use "../../styles/variables" as *;
+
+.sliderStyling {
+  z-index: 9;
+  img {
+    width: 100%;
+    object-fit: cover;
+    display: block;
+    height: 30vh;
+  }
+  border-bottom: 10px solid $black;
+}

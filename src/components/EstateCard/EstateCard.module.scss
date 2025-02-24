@@ -1,0 +1,31 @@
+@use "../../styles/mixins" as m;
+@use "../../styles/variables" as *;
+@use "../../styles/placeholders";
+
+.cardStyling {
+  @include m.flexBox(column, center, center, 0.5rem);
+  @extend %trebuchet;
+  border: 2px solid $rosa;
+  border-radius: 6px;
+  padding: 1rem;
+  img {
+    width: 100%;
+  }
+
+  p {
+    margin: 0;
+  }
+
+  .headerInfo {
+    span {
+      padding-left: 0.2rem;
+    }
+  }
+
+  figcaption {
+    width: 100%;
+    .infoContainer {
+      @include m.flexBox(row, flex-start, center, 0.5rem);
+    }
+  }
+}
