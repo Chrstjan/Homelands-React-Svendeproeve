@@ -2,13 +2,13 @@
 @use "../../styles/placeholders";
 
 .logoStyling {
-    background: $brown;
-    color: $white;
-    text-align: center;
-    border: 1px solid $black;
-    width: 80vw;
-    margin: 1rem;
-    @extend %odibee;
-    font-weight: 600;
-    font-style: normal;
+  background: $brown;
+  color: $white;
+  text-align: center;
+  border: 1px solid $black;
+  width: 80vw;
+  margin: 1rem;
+  @extend %odibee;
+  font-weight: lighter;
+  font-style: normal;
 }

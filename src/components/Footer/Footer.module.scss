@@ -1,0 +1,35 @@
+@use "../../styles/mixins" as m;
+@use "../../styles/variables" as *;
+@use "../../styles/placeholders";
+
+.footerStyling {
+  @include m.flexBox(column, center, center, 1rem);
+  position: absolute;
+  bottom: 0;
+  width: 100vw;
+  background: $black;
+  color: $white;
+  @extend %trebuchet;
+  padding-bottom: 1.5rem;
+
+  p {
+    margin: 0;
+  }
+
+  .logoContainer {
+    @extend %odibee;
+    font-size: 20px;
+  }
+
+  .contactContainer {
+    @include m.flexBox(column, center, center, 2rem);
+  }
+
+  .mediaContainer {
+    @include m.flexBox(row, center, center, 0.5rem);
+
+    svg {
+      font-size: 30px;
+    }
+  }
+}

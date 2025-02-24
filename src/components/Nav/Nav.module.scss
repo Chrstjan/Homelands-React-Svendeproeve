@@ -2,24 +2,27 @@
 @use "../../styles/variables" as *;
 @use "../../styles/placeholders";
 
-  .navStyling {
-    @include m.flexBox(column, center, center, 1rem);
-    margin: 0;
-    padding: 0;
+.navStyling {
+  @include m.flexBox(column, center, center, 1rem);
+  margin: 0;
+  padding: 0;
 
-    &.hiddenStyling {
-        display: none;
-      }
+  &.hiddenStyling {
+    display: none;
 
-    li {
-        @extend %odibee;
-        list-style: none;
-        
-        a {
-            color: $white;
-            text-decoration: none;
-            font-size: 25px;
-
-        }
+    @media (min-width: 768px) {
+      display: flex;
     }
   }
+
+  li {
+    @extend %odibee;
+    list-style: none;
+
+    a {
+      color: $white;
+      text-decoration: none;
+      font-size: 25px;
+    }
+  }
+}
