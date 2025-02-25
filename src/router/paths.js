@@ -1,3 +1,4 @@
+import { DashboardPage } from "../pages/DashboardPage";
 import { EstatesPage } from "../pages/EstatesPage";
 import { LandingPage } from "../pages/LandingPage";
 import { LoginPage } from "../pages/LoginPage";
@@ -28,3 +29,11 @@ export const paths = [
     element: PageNotFound,
   },
 ];
+
+export const protectedPaths = [
+  {
+    id: 1,
+    path: "/dashboard",
+    element: DashboardPage
+  }
+]

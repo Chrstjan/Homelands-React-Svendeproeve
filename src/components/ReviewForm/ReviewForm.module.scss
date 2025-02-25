@@ -1,0 +1,23 @@
+@use "../../styles/mixins" as m;
+@use "../../styles/variables" as *;
+@use "../../styles/placeholders";
+
+.formStyling {
+    @include m.flexBox(column, center, center, 0.6rem);
+    background: $black;
+    color: $white;
+    padding: 1rem;
+
+    .inputContainer {
+        @include m.flexBox(row, center, center, 0.5rem);
+
+        input {
+            width: 50vw;
+        }
+
+        textarea {
+            resize: none;
+            width: 40vw;
+        }
+    }
+}

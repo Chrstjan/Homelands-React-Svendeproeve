@@ -4,16 +4,25 @@ import { useFetch } from "../hooks/UseFetch";
 import { Wrapper } from "../components/Wrapper/Wrapper";
 import { EstateCard } from "../components/EstateCard/EstateCard";
 import { EmployeeCard } from "../components/EmployeeCard/EmployeeCard";
+import { ReviewCard } from "../components/ReviewCard/ReviewCard";
+import { ReviewForm } from "../components/ReviewForm/ReviewForm";
 
 export const LandingPage = () => {
   const { data, isLoading, error } = useFetch(
     "https://api.mediehuset.net/homelands/homes"
   );
   const [estates, setEstates] = useState();
+  const [writeReview, setWriteReview] = useState(false);
 
   useEffect(() => {
     if (data) {
-      const estates = data?.items?.slice(0, 3);
+      const randomEstate = [];
+      randomEstate.push(
+        data?.items[Math.floor(Math.random() * data?.items?.length)],
+        data?.items[Math.floor(Math.random() * data?.items?.length)],
+        data?.items[Math.floor(Math.random() * data?.items?.length)],
+      )
+      const estates = randomEstate?.slice(0, 3);
       setEstates(estates);
     }
   }, [data]);
@@ -34,7 +43,9 @@ export const LandingPage = () => {
       <Wrapper type="estateShowcase">
         {estates && estates?.length > 0 ? <EstateCard data={estates} /> : null}
       </Wrapper>
-      <Wrapper text="Det siger kunderne:"></Wrapper>
+      <Wrapper text="Det siger kunderne:">
+        {!writeReview ? <ReviewCard setWriteReview={setWriteReview}/> : <ReviewForm setWriteReview={setWriteReview}/>}
+      </Wrapper>
       <Wrapper text="Mød vores ansatte">
         <EmployeeCard />
       </Wrapper>

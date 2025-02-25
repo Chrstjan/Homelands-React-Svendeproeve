@@ -1,0 +1,19 @@
+@use "../../styles/mixins" as m;
+@use "../../styles/variables" as *;
+@use "../../styles/placeholders";
+
+.reviewStyling {
+    @include m.flexBox(column, center, center, 0.5rem);
+    @extend %trebuchet;
+    text-align: center;
+    background: $rosa;
+    padding-bottom: 1rem;
+
+    p {
+        margin: 0;
+    }
+
+    span {
+        @include m.flexBox(row, center, center, 0.5rem)
+    }
+}

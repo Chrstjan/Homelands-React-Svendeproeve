@@ -1,8 +1,28 @@
 import s from "./Nav.module.scss"
-import { paths } from "../../router/paths.js";
 import { NavLink } from "react-router-dom";
+import { useContext } from "react";
+import { UserContext } from "../../context/UserContext.jsx";
 
 export const Nav = ({isNavHidden}) => {
+  const { user } = useContext(UserContext);
+
+  const paths = [
+    {
+        id: 1,
+        name: "Forside",
+        path: "/",
+      },
+      {
+        id: 2,
+        name: "Boliger til salg",
+        path: "/estates",
+      },
+      {
+        id: 3,
+        name: `${user ? 'Logout' : 'Login'}`,
+        path: "/login",
+      },
+  ]
   return (
     <nav>
         <ul className={`${s.navStyling} ${
