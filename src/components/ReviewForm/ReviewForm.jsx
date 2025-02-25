@@ -28,7 +28,6 @@ export const ReviewForm = ({setWriteReview}) => {
           const res = await fetch(`https://api.mediehuset.net/homelands/reviews`, {
             method: "POST",
             headers: {
-              "Content-Type": "application/json",
               Authorization: `Bearer ${user.access_token}`
             },
             body: JSON.stringify(formData),

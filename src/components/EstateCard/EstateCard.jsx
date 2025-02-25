@@ -1,6 +1,10 @@
+import { useContext } from "react";
+import { UserContext } from "../../context/UserContext"
 import s from "./EstateCard.module.scss";
+import { FaRegHeart } from "react-icons/fa";
 
-export const EstateCard = ({ data, type }) => {
+export const EstateCard = ({ data, type, canLike }) => {
+  const { user } = useContext(UserContext);
   return (
     <>
       {data?.map((item) => {
@@ -10,6 +14,9 @@ export const EstateCard = ({ data, type }) => {
               <img src={item?.images[0]?.filename?.medium} alt={item?.adress} />
               <span className={s.headerInfo}>
                 <h4>{item?.address}</h4>
+                {user && canLike ? <span className={s.likeContainer}>
+                  <FaRegHeart />
+                </span> : null}
                 <p>
                   {item?.zipcode}
                   <span>{item?.city}</span>
