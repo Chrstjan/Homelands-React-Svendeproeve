@@ -3,37 +3,51 @@
 @use "../../styles/placeholders";
 
 .formHeader {
-    @include m.flexBox(column, center, flex-start, 0rem);
-    @extend %trebuchet;
+  @include m.flexBox(column, center, flex-start, 0rem);
+  @extend %trebuchet;
 
-    h2 {
-        margin: 0;
-    }
+  h2 {
+    margin: 0;
+  }
+}
+
+.accountStyling {
+  @include m.flexBox(column, center, center 1rem);
+  @extend %trebuchet;
+
+  button {
+    border: 0;
+    background: $black;
+    color: $white;
+    padding: 0.4rem 0.8rem;
+    border-radius: 6px;
+    width: 20vw;
+  }
 }
 
 .formStyling {
-    @include m.flexBox(column, center, flex-start, 1rem);
-    @extend %trebuchet;
+  @include m.flexBox(column, center, flex-start, 1rem);
+  @extend %trebuchet;
+
+  input {
+    width: 60vw;
+    outline: none;
+    border: 1px solid #00000055;
+    border-radius: 4px;
+    padding: 0.3rem;
+  }
+
+  .buttonContainer {
+    @include m.flexBox(row, flex-start, center, 0.5rem);
 
     input {
-        width: 60vw;
-        outline: none;
-        border: 1px solid #00000055;
-        border-radius: 4px;
-        padding: 0.3rem
+      @extend %trebuchet;
+      border: 0;
+      background: $black;
+      color: $white;
+      padding: 0.4rem 0.8rem;
+      border-radius: 6px;
+      width: 20vw;
     }
-
-    .buttonContainer {
-        @include m.flexBox(row, flex-start, center, 0.5rem);
-
-        input {
-            @extend %trebuchet;
-            border: 0;
-            background: $black;
-            color: $white;
-            padding: 0.4rem 0.8rem;
-            border-radius: 6px;
-            width: 20vw;
-        }
-    }
+  }
 }

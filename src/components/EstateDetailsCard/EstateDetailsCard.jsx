@@ -109,6 +109,20 @@ export const EstateDetailsCard = ({ data }) => {
             </span>
           </div>
         </div>
+        <div className={s.contactContainer}>
+          <h2>Kontakt</h2>
+          <figure>
+            <img src={data?.staff?.image} alt={data?.staff?.firstname} />
+            <figcaption>
+              <h4>
+                {data?.staff?.firstname} {data?.staff?.lastname}
+              </h4>
+              <p>{data?.staff?.position}</p>
+              <p>Mobil: {data?.staff?.phone}</p>
+              <p>Email: {data?.staff?.email}</p>
+            </figcaption>
+          </figure>
+        </div>
       </figcaption>
     </figure>
   );
