@@ -26,7 +26,7 @@
       position: absolute;
       right: 5%;
       top: 55%;
-      
+
       svg {
         font-size: 20px;
       }
@@ -35,6 +35,36 @@
 
   figcaption {
     width: 100%;
+
+    .energyType {
+      display: block;
+      width: 5vw;
+      height: 3vh;
+      text-align: center;
+      color: $white;
+
+      &.A {
+        background: #2d9d40;
+      }
+      &.B {
+        background: #74a634;
+      }
+      &.C {
+        background: #d2a20c;
+      }
+      &.D {
+        background: #d27e17;
+      }
+      &.E {
+        background: #cb4c23;
+      }
+      &.F {
+        background: #810814;
+      }
+      &.G {
+        background: #5a2a57;
+      }
+    }
     .infoContainer {
       @include m.flexBox(row, flex-start, center, 0.5rem);
     }

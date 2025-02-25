@@ -1,0 +1,21 @@
+@use "../../styles/mixins" as m;
+@use "../../styles/variables" as *;
+@use "../../styles/placeholders";
+
+.dotsContainer {
+  @include m.flexBox(row, center, center, 0rem);
+
+  span {
+    width: 4vw;
+    height: 4vw;
+    border-radius: 50%;
+    border: 1px solid #000;
+
+    &.line {
+      border-radius: 0%;
+      height: 0vw;
+      width: 30vw;
+      border-top: 1px solid #000;
+    }
+  }
+}

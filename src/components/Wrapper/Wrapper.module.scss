@@ -14,4 +14,9 @@
   &.login {
     margin: 1rem;
   }
+
+  &.filterWrapper {
+    @include m.flexBox(column, center, center, 0.5rem);
+    padding: 1rem;
+  }
 }

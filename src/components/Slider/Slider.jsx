@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { useFetch } from "../../hooks/UseFetch";
 import s from "./Slider.module.scss";
 
-export const Slider = () => {
+export const Slider = ({ thumbnail }) => {
   const { data, isLoading, error } = useFetch(
     "https://api.mediehuset.net/homelands/images"
   );
@@ -47,7 +47,11 @@ export const Slider = () => {
 
   return (
     <div className={s.sliderStyling}>
-      {images && images?.length > 0 ? <img src={images[sliderIndex]} /> : null}
+      {images && images?.length > 0 && !thumbnail ? (
+        <img src={images[sliderIndex]} />
+      ) : (
+        <img src={thumbnail} />
+      )}
     </div>
   );
 };

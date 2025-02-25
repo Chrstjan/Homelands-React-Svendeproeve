@@ -1,0 +1,48 @@
+@use "../../styles/mixins" as m;
+@use "../../styles/variables" as *;
+@use "../../styles/placeholders";
+
+.cardStyling {
+  @include m.flexBox(column, center, center, 1rem);
+  header {
+    @include m.flexBox(column, center, center, 1.5rem);
+    .addressContainer {
+      p {
+        margin: 0;
+        margin-bottom: 0.5rem;
+      }
+    }
+
+    .iconContainer {
+      @include m.flexBox(row, center, center, 0.5rem);
+      svg {
+        font-size: 30px;
+        border: 1px solid #000;
+        border-radius: 50%;
+        padding: 0.5rem;
+        color: grey;
+        background: #e9e1e1a4;
+      }
+    }
+    .priceContainer {
+      .priceStyling {
+        @include m.flexBox(row, center, center, 1rem);
+      }
+      p {
+        text-align: right;
+        margin: 0;
+        margin-bottom: 0.5rem;
+      }
+    }
+  }
+
+  figcaption {
+    .infoContainer {
+      @include m.flexBox(column, center, center, 1rem);
+
+      .infoBar {
+        @include m.flexBox(row, space-between, center, 1rem);
+      }
+    }
+  }
+}
