@@ -33,7 +33,6 @@ export const UserReview = () => {
     );
 
     const deletedData = await res.json();
-    console.log(deletedData);
 
     if (deletedData.message == "Record deleted") {
       let allReviews = [...reviews];

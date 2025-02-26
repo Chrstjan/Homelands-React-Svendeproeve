@@ -6,13 +6,11 @@ import { EstateDetailsCard } from "../components/EstateDetailsCard/EstateDetails
 
 export const EstatePage = () => {
   const EstateId = useParams();
-  console.log(Object.values(EstateId));
 
   const { data, isLoading, error } = useFetch(
     `https://api.mediehuset.net/homelands/homes/${Object.values(EstateId)}`
   );
 
-  console.log(data);
   return (
     <>
       <Wrapper>

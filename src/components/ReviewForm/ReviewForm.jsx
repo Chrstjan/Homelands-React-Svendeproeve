@@ -37,7 +37,6 @@ export const ReviewForm = ({ setWriteReview }) => {
     });
 
     const test = await res.json();
-    console.log(test);
 
     if (test?.status == "Ok") {
       notify();

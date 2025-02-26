@@ -9,14 +9,23 @@ import { Toastbar } from "../Toastbar/Toastbar";
 export const EstateCard = ({ data, type, canLike, canDislike }) => {
   const { user } = useContext(UserContext);
   const navigate = useNavigate();
-  const notify = () => toast("Bolig liket");
+  const notify = (message) => toast(message);
   const [estates, setEstates] = useState();
 
   useEffect(() => {
     setEstates(data);
   }, [data]);
 
-  const handleCardClick = (id) => {
+  const handleCardClick = async (id) => {
+    const res = await fetch(
+      `https://api.mediehuset.net/homelands/homes/${id}`,
+      {
+        method: "PATCH",
+        headers: {
+          Authorization: `Bearer ${user.access_token}`,
+        },
+      }
+    );
     navigate(`/estates/${id}`);
   };
 
@@ -35,7 +44,7 @@ export const EstateCard = ({ data, type, canLike, canDislike }) => {
     const likeData = await res.json();
 
     if (likeData?.status == "Ok") {
-      notify();
+      notify("Bolig tilføjet til favoritter");
     }
   };
 
@@ -50,11 +59,11 @@ export const EstateCard = ({ data, type, canLike, canDislike }) => {
       }
     );
     const dislikeData = await res.json();
-    console.log(dislikeData);
     if (dislikeData?.message == "Record deleted") {
       let allEstates = [...estates];
       let filteredEstates = allEstates.filter((item) => item?.home_id !== id);
       setEstates(filteredEstates);
+      notify("Bolig fjernet fra favoritter");
     }
   };
 
@@ -63,9 +72,7 @@ export const EstateCard = ({ data, type, canLike, canDislike }) => {
       {estates?.map((item) => {
         return (
           <figure
-            onClick={() => {
-              !canDislike ? handleCardClick(item?.id) : null;
-            }}
+            onClick={() => handleCardClick(item?.id || item?.home_id)}
             key={item?.id || item?.home_id}
             className={`${s.cardStyling} ${s[type]}`}
           >
@@ -73,14 +80,15 @@ export const EstateCard = ({ data, type, canLike, canDislike }) => {
               <img src={item?.images[0]?.filename?.medium} alt={item?.adress} />
               <span className={s.headerInfo}>
                 <h4>{item?.address}</h4>
-                {user && canLike ? (
+                {user?.access_token && canLike ? (
                   <span className={s.likeContainer}>
                     <FaRegHeart onClick={() => handleLikeEstate(item?.id)} />
                   </span>
                 ) : null}
-                {user && canDislike ? (
+                {user?.access_token && canDislike ? (
                   <span className={s.likeContainer}>
                     <FaRegHeart
+                      className={s.likedEstate}
                       onClick={() => handleDislikeEstate(item?.home_id)}
                     />
                   </span>

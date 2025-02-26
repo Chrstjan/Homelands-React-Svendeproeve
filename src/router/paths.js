@@ -30,6 +30,11 @@ export const paths = [
     element: EstatePage,
   },
   {
+    id: 5,
+    path: "/search/:keyword",
+    element: EstatesPage,
+  },
+  {
     id: 99,
     path: "/*",
     element: PageNotFound,

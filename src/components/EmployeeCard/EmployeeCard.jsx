@@ -6,7 +6,6 @@ export const EmployeeCard = () => {
   const { data, isLoading, error } = useFetch(
     "https://api.mediehuset.net/homelands/staff"
   );
-  console.log(data);
   return (
     <>
       {data?.items?.map((item) => {

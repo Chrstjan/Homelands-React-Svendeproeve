@@ -15,12 +15,10 @@ export const Slider = ({ thumbnail }) => {
       return item.image;
     });
     let images = selectedImages?.slice(2, 5);
-    console.log(images);
     setImages(images);
   }, [data]);
 
   const nextSlide = () => {
-    // console.log("next");
     if (sliderIndex === images?.length - 1) {
       setSliderIndex(0);
     } else {

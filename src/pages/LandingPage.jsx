@@ -20,8 +20,8 @@ export const LandingPage = () => {
       randomEstate.push(
         data?.items[Math.floor(Math.random() * data?.items?.length)],
         data?.items[Math.floor(Math.random() * data?.items?.length)],
-        data?.items[Math.floor(Math.random() * data?.items?.length)],
-      )
+        data?.items[Math.floor(Math.random() * data?.items?.length)]
+      );
       const estates = randomEstate?.slice(0, 3);
       setEstates(estates);
     }
@@ -41,10 +41,16 @@ export const LandingPage = () => {
         <Slider />
       </Wrapper>
       <Wrapper type="estateShowcase">
-        {estates && estates?.length > 0 ? <EstateCard data={estates} /> : null}
+        {estates && estates?.length > 0 ? (
+          <EstateCard data={estates} canLike />
+        ) : null}
       </Wrapper>
       <Wrapper text="Det siger kunderne:">
-        {!writeReview ? <ReviewCard setWriteReview={setWriteReview}/> : <ReviewForm setWriteReview={setWriteReview}/>}
+        {!writeReview ? (
+          <ReviewCard setWriteReview={setWriteReview} />
+        ) : (
+          <ReviewForm setWriteReview={setWriteReview} />
+        )}
       </Wrapper>
       <Wrapper text="Mød vores ansatte">
         <EmployeeCard />

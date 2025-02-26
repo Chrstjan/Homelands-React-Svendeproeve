@@ -28,7 +28,10 @@ export const Gallery = ({ data }) => {
         <FaRegArrowAltCircleLeft onClick={() => prevSlide()} />
         <FaRegArrowAltCircleRight onClick={() => nextSlide()} />
       </div>
-      <img src={data[galleryIndex]?.filename?.medium} />
+      <img
+        className={s.galleryImg}
+        src={data[galleryIndex]?.filename?.medium}
+      />
     </>
   );
 };

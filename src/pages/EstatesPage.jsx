@@ -6,6 +6,8 @@ import { EstateType } from "../components/EstateType/EstateType";
 import { EstatePrice } from "../components/EstatePrice/EstatePrice";
 import { FaRegHeart } from "react-icons/fa";
 import { UserContext } from "../context/UserContext";
+import { useParams } from "react-router-dom";
+import { findObjectValues } from "../helpers/findObjectValues";
 
 export const EstatesPage = () => {
   const { data, isLoading, error } = useFetch(
@@ -17,6 +19,7 @@ export const EstatesPage = () => {
   const [estatePrice, setEstatePrice] = useState();
   const [filteredEstates, setFilteredEstates] = useState();
   const [favorites, setFavorites] = useState();
+  const { keyword } = useParams();
 
   const getFavorites = async () => {
     const res = await fetch("https://api.mediehuset.net/homelands/favorites", {
@@ -25,7 +28,6 @@ export const EstatesPage = () => {
       },
     });
     const favoriteData = await res.json();
-    console.log(favoriteData);
     setFavorites(favoriteData?.items);
   };
 
@@ -35,14 +37,22 @@ export const EstatesPage = () => {
 
   useEffect(() => {
     if (data) {
-      console.log(data);
       setEstates(data?.items);
       setFilteredEstates(data?.items);
     }
   }, [data]);
 
   useEffect(() => {
-    console.log("Selected", selcetedType);
+    if (keyword && keyword.length > 0) {
+      let searched = estates?.filter(
+        (item) => findObjectValues(item, keyword)
+        // item?.address.toLocaleLowerCase()?.includes(keyword.toLocaleLowerCase())
+      );
+      setFilteredEstates(searched);
+    }
+  }, [estates, keyword]);
+
+  useEffect(() => {
     if (estates && estates.length > 0) {
       let allEstates = [...estates];
       let selectedEstates = allEstates.filter((item) => {
@@ -50,7 +60,6 @@ export const EstatesPage = () => {
           return item;
         }
       });
-      console.log(selectedEstates);
       setFilteredEstates(selectedEstates);
     }
   }, [selcetedType]);

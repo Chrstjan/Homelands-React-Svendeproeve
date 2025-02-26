@@ -19,11 +19,10 @@ export const DashboardPage = () => {
         }
       );
       const data = await res.json();
-      console.log(data);
       setFavoriteEstates(data?.items);
     };
     getFavorites();
-  }, [user]);
+  }, []);
 
   return (
     <>

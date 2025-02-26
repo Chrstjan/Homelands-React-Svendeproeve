@@ -7,7 +7,6 @@ export const ReviewCard = ({ setWriteReview }) => {
   const { data, isLoading, error } = useFetch(
     "https://api.mediehuset.net/homelands/reviews"
   );
-  console.log(data?.items);
   const [review, setReview] = useState();
   const { user } = useContext(UserContext);
 
@@ -15,7 +14,6 @@ export const ReviewCard = ({ setWriteReview }) => {
     if (data) {
       const randomReview =
         data?.items[Math.floor(Math.random() * data?.items?.length)];
-      console.log(randomReview);
       setReview(randomReview);
     }
   }, [data]);

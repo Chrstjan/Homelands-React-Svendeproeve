@@ -11,9 +11,12 @@
 
   svg {
     font-size: 30px;
+    text-shadow: 3px 1px 2px #000;
   }
 }
 
-img {
+.galleryImg {
   width: 100%;
+  height: 30vh;
+  object-fit: cover;
 }

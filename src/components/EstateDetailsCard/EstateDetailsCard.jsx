@@ -5,10 +5,12 @@ import { ImLocation2 } from "react-icons/im";
 import { FaRegHeart } from "react-icons/fa";
 import { Modal } from "../Modal/Modal";
 import { toast } from "react-toastify";
-import { Toastbar } from "../ToastBar/ToastBar";
-import { useState } from "react";
+import { Toastbar } from "../Toastbar/Toastbar";
+import { useContext, useState } from "react";
+import { UserContext } from "../../context/UserContext";
 
 export const EstateDetailsCard = ({ data }) => {
+  const { user } = useContext(UserContext);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [modalContent, setModalContent] = useState();
 
@@ -28,7 +30,26 @@ export const EstateDetailsCard = ({ data }) => {
     setModalContent("location");
   };
 
-  const notify = () => toast("Bolig liket");
+  const notify = () => toast("Bolig tilføjet til favoritter");
+
+  const handleLikeClick = async (id) => {
+    const body = new URLSearchParams();
+    body.append("home_id", id);
+
+    const res = await fetch("https://api.mediehuset.net/homelands/favorites", {
+      method: "POST",
+      headers: {
+        Authorization: `Bearer ${user.access_token}`,
+      },
+      body: body,
+    });
+
+    const likeData = await res.json();
+
+    if (likeData?.status == "Ok") {
+      notify();
+    }
+  };
 
   return (
     <>
@@ -49,7 +70,7 @@ export const EstateDetailsCard = ({ data }) => {
             <FaCamera onClick={() => handleGallery()} />
             <RiBuilding3Line onClick={() => handlefloorplan()} />
             <ImLocation2 onClick={() => handleLocation()} />
-            <FaRegHeart onClick={() => notify()} />
+            <FaRegHeart onClick={() => handleLikeClick(data?.id)} />
           </span>
           <span className={s.priceContainer}>
             <span className={s.priceStyling}>

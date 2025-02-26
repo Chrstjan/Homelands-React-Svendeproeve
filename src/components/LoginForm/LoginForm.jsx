@@ -17,15 +17,12 @@ export const LoginForm = () => {
   });
 
   const handleFormSubmit = async (data) => {
-    console.log(data);
     const { username, password } = { ...data };
 
     const formData = {
       username: username,
       password: password,
     };
-
-    console.log(formData);
 
     const res = await fetch(`https://api.mediehuset.net/token`, {
       method: "POST",
@@ -39,7 +36,6 @@ export const LoginForm = () => {
 
     if (userData) {
       loginUser(userData);
-      console.log("Login", userData);
     }
   };
 
