@@ -9,6 +9,7 @@
   border-radius: 6px;
   padding: 1rem;
   position: relative;
+  z-index: 99;
   img {
     width: 100%;
   }
@@ -26,6 +27,7 @@
       position: absolute;
       right: 5%;
       top: 55%;
+      z-index: 999;
 
       svg {
         font-size: 20px;

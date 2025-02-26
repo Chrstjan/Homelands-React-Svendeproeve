@@ -21,14 +21,6 @@ export const ReviewForm = ({ setWriteReview }) => {
   const handleFormSubmit = async (data) => {
     const { title, content } = { ...data };
 
-    // const formData = {
-    //   title: title,
-    //   content: content,
-    //   user_id: user.user_id,
-    //   active: true,
-    //   num_stars: 1 //temp
-    // };
-
     const body = new URLSearchParams();
     body.append("title", title);
     body.append("content", content);
