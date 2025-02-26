@@ -1,0 +1,56 @@
+@use "../../styles/mixins" as m;
+@use "../../styles/variables" as *;
+
+.hiddenStyling {
+  display: none;
+}
+
+.overlayStyling {
+  display: block;
+  width: 100vw;
+  height: 100vh;
+  background: #1c1c1c77;
+  position: fixed;
+  top: 0;
+  z-index: 99;
+}
+
+.modalStyling {
+  @include m.flexBox(column, center, center, 1rem);
+  width: 80vw;
+  height: 25vh;
+  color: #eee;
+  border-radius: 8px;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  z-index: 999;
+  transform: translate(-50%, -50%);
+
+  @media (min-width: 1300px) {
+    width: 32vw;
+  }
+
+  button {
+    background: transparent;
+    font-size: 20px;
+    color: $white;
+    position: absolute;
+    top: -22%;
+    right: -10%;
+    border: 0;
+
+    @media (min-width: 1300px) {
+      font-size: 24px;
+    }
+
+    &:hover {
+      cursor: pointer;
+      scale: 1.2;
+    }
+  }
+
+  img {
+    width: 90vw;
+  }
+}

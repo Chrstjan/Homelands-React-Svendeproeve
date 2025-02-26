@@ -2,6 +2,8 @@ import { useForm } from "react-hook-form";
 import s from "./ReviewForm.module.scss";
 import { useContext } from "react";
 import { UserContext } from "../../context/UserContext";
+import { toast } from "react-toastify";
+import { Toastbar } from "../Toastbar/Toastbar";
 
 export const ReviewForm = ({ setWriteReview }) => {
   const { user } = useContext(UserContext);
@@ -13,6 +15,8 @@ export const ReviewForm = ({ setWriteReview }) => {
   } = useForm({
     mode: "all",
   });
+
+  const notify = () => toast("Anmeldelse oprettet");
 
   const handleFormSubmit = async (data) => {
     const { title, content } = { ...data };
@@ -42,6 +46,10 @@ export const ReviewForm = ({ setWriteReview }) => {
 
     const test = await res.json();
     console.log(test);
+
+    if (test?.status == "Ok") {
+      notify();
+    }
   };
 
   return (
@@ -85,6 +93,7 @@ export const ReviewForm = ({ setWriteReview }) => {
         <input type="submit" value="Send" />
       </form>
       <p onClick={() => setWriteReview((prev) => !prev)}>Skriv en anmeldelse</p>
+      <Toastbar />
     </>
   );
 };

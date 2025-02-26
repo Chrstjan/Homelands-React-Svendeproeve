@@ -4,11 +4,6 @@ import { useFetch } from "../hooks/UseFetch";
 import { UserReview } from "../components/UserReview/UserReview";
 
 export const DashboardPage = () => {
-  const { data, isLoading, error } = useFetch(
-    "https://api.mediehuset.net/homelands/reviews"
-  );
-
-  console.log(data);
   return (
     <>
       <Wrapper
@@ -16,7 +11,7 @@ export const DashboardPage = () => {
         text="Administation"
         subText="Du er logget ind som admin"
       >
-        {data && data?.items ? <UserReview data={data?.items} /> : null}
+        <UserReview />
       </Wrapper>
     </>
   );
