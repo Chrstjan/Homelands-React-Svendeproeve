@@ -52,7 +52,7 @@ export const LandingPage = () => {
           <ReviewForm setWriteReview={setWriteReview} />
         )}
       </Wrapper>
-      <Wrapper text="Mød vores ansatte">
+      <Wrapper text="Mød vores ansatte" type="employee">
         <EmployeeCard />
       </Wrapper>
     </>

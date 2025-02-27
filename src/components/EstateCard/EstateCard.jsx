@@ -108,16 +108,20 @@ export const EstateCard = ({ data, type, canLike, canDislike }) => {
               </span>
             </header>
             <figcaption>
-              <span className={`${s.energyType} ${s[item?.energy_label_name]}`}>
-                <p>{item?.energy_label_name}</p>
-              </span>
-              <span className={s.infoContainer}>
-                <p>{item?.num_rooms} værelser,</p>
-                <p>
-                  {item?.floor_space} m <sup>2</sup>
-                </p>
-              </span>
-              <p>{formatPrice(item?.price)} DKK</p>
+              <div>
+                <span
+                  className={`${s.energyType} ${s[item?.energy_label_name]}`}
+                >
+                  <p>{item?.energy_label_name}</p>
+                </span>
+                <span className={s.infoContainer}>
+                  <p>{item?.num_rooms} værelser,</p>
+                  <p>
+                    {item?.floor_space} m <sup>2</sup>
+                  </p>
+                </span>
+              </div>
+              <h4 className={s.estatePrice}>{formatPrice(item?.price)} DKK</h4>
             </figcaption>
           </figure>
         );

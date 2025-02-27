@@ -2,7 +2,10 @@ import s from "./EstateType.module.scss";
 
 export const EstateType = ({ setSelectedType }) => {
   return (
-    <select onChange={(e) => setSelectedType(e.target.value)}>
+    <select
+      className={s.selectStyling}
+      onChange={(e) => setSelectedType(e.target.value)}
+    >
       <option defaultValue disabled>
         Sorter efter type
       </option>

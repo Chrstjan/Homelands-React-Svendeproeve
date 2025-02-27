@@ -11,6 +11,11 @@
   padding: 1rem;
   position: relative;
   z-index: 99;
+
+  @media (min-width: 1200px) {
+    width: 24vw;
+  }
+
   img {
     width: 100%;
   }
@@ -42,6 +47,33 @@
 
   figcaption {
     width: 100%;
+
+    @media (min-width: 1200px) {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      gap: 1rem;
+      padding: 0rem 1rem;
+
+      div {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        gap: 0.5rem;
+
+        .energyType {
+          width: 2vw;
+
+          p {
+            width: 23px;
+          }
+        }
+
+        p {
+          width: 80px;
+        }
+      }
+    }
 
     .energyType {
       display: block;

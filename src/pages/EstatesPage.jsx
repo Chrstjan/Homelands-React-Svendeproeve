@@ -93,14 +93,17 @@ export const EstatesPage = () => {
   }
   return (
     <>
-      <Wrapper text="Boliger til salg" type="filterWrapper">
-        <EstateType setSelectedType={setSelectedType} />
-        <EstatePrice setEstatePrice={setEstatePrice} />
+      <Wrapper type="filterWrapper">
+        <h2>Boliger til salg</h2>
+        <section>
+          <EstatePrice setEstatePrice={setEstatePrice} />
+          <EstateType setSelectedType={setSelectedType} />
+        </section>
         {user?.access_token ? (
           <FaRegHeart onClick={() => getFavorites()} />
         ) : null}
       </Wrapper>
-      <Wrapper>
+      <Wrapper type="estateShowcase">
         {estates && estates.length > 0 ? (
           <EstateCard data={filteredEstates} canLike />
         ) : null}

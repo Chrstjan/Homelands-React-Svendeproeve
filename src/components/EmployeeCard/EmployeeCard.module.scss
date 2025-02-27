@@ -17,6 +17,16 @@
     background: #ffffffb4;
     margin-top: -6rem;
 
+    @media (min-width: 1200px) {
+      text-align: left;
+      margin-top: -3rem;
+
+      h3,
+      p {
+        padding: 0rem, 0.3rem;
+      }
+    }
+
     .contactInfo {
       display: none;
 

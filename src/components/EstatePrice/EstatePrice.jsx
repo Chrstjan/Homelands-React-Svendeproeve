@@ -2,7 +2,7 @@ import s from "./EstatePrice.module.scss";
 
 export const EstatePrice = ({ setEstatePrice }) => {
   return (
-    <div>
+    <div className={s.priceContainer}>
       <p>Sorter efter prisniveau</p>
       <div className={s.dotsContainer}>
         <span
