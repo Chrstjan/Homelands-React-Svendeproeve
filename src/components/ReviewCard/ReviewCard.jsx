@@ -2,6 +2,7 @@ import { useContext, useEffect, useState } from "react";
 import { useFetch } from "../../hooks/UseFetch";
 import { UserContext } from "../../context/UserContext";
 import s from "./ReviewCard.module.scss";
+import { formatMonth } from "../../helpers/formatMonth";
 
 export const ReviewCard = ({ setWriteReview }) => {
   const { data, isLoading, error } = useFetch(
@@ -12,6 +13,8 @@ export const ReviewCard = ({ setWriteReview }) => {
 
   useEffect(() => {
     if (data) {
+      console.log(data);
+      
       const randomReview =
         data?.items[Math.floor(Math.random() * data?.items?.length)];
       setReview(randomReview);
@@ -29,12 +32,12 @@ export const ReviewCard = ({ setWriteReview }) => {
   return (
     <>
       <div className={s.reviewStyling}>
-        <h2>{review?.title}</h2>
+        {review ? <><h2>{review?.title}</h2>
         <p>{review?.content}</p>
         <span>
-          <p>{review?.user?.firstname + " " + review?.user?.lastname}</p>
-          <p>{review?.created_friendly}</p>
-        </span>
+          <p>{review?.user?.firstname + " " + review?.user?.lastname},</p>
+          <p>{formatMonth(review?.created_friendly)}</p>
+        </span></> : <h2>Ingen anmeldelse fundet</h2>}
       </div>
       {user?.access_token ? (
         <p onClick={() => setWriteReview((prev) => !prev)}>

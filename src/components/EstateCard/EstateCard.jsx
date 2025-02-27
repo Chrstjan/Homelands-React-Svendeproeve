@@ -5,6 +5,7 @@ import { FaRegHeart } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import { Toastbar } from "../Toastbar/Toastbar";
+import { formatPrice } from "../../helpers/formatPrice";
 
 export const EstateCard = ({ data, type, canLike, canDislike }) => {
   const { user } = useContext(UserContext);
@@ -110,7 +111,7 @@ export const EstateCard = ({ data, type, canLike, canDislike }) => {
                   {item?.floor_space} m <sup>2</sup>
                 </p>
               </span>
-              <p>{item?.price} DKK</p>
+              <p>{formatPrice(item?.price)} DKK</p>
             </figcaption>
           </figure>
         );

@@ -8,11 +8,15 @@ import { toast } from "react-toastify";
 import { Toastbar } from "../Toastbar/Toastbar";
 import { useContext, useState } from "react";
 import { UserContext } from "../../context/UserContext";
+import { cleanDescriptionText } from "../../helpers/cleanDescription";
+import { formatPrice } from "../../helpers/formatPrice";
 
 export const EstateDetailsCard = ({ data }) => {
   const { user } = useContext(UserContext);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [modalContent, setModalContent] = useState();
+
+  console.log(data);
 
   const handleGallery = () => {
     setIsModalOpen((prev) => !prev);
@@ -75,10 +79,10 @@ export const EstateDetailsCard = ({ data }) => {
           <span className={s.priceContainer}>
             <span className={s.priceStyling}>
               <h4>Kontantpris</h4>
-              <h2>{data?.price}</h2>
+              <h2>{formatPrice(data?.price)}</h2>
             </span>
-            <p>Udbetaling {data?.payout}</p>
-            <p>Ejerudgift per måned {data?.gross}</p>
+            <p>Udbetaling {formatPrice(data?.payout)}</p>
+            <p>Ejerudgift per måned {formatPrice(data?.gross)}</p>
           </span>
         </header>
         <figcaption>
@@ -140,21 +144,25 @@ export const EstateDetailsCard = ({ data }) => {
             <div className={s.rightContainer}>
               <span className={s.infoBar}>
                 <p>Kontantpris</p>
-                <p>{data?.price}</p>
+                <p>{formatPrice(data?.price)}</p>
               </span>
               <span className={s.infoBar}>
                 <p>Udbetaling</p>
-                <p>{data?.payout}</p>
+                <p>{formatPrice(data?.payout)}</p>
               </span>
               <span className={s.infoBar}>
                 <p>Brutto ex. ejerudgift</p>
-                <p>{data?.gross}</p>
+                <p>{formatPrice(data?.gross)}</p>
               </span>
               <span className={s.infoBar}>
                 <p>Ejerudgift</p>
-                <p>{data?.cost}</p>
+                <p>{formatPrice(data?.gross)}</p>
               </span>
             </div>
+          </div>
+          <div className={s.descriptionContainer}>
+            <p>{cleanDescriptionText(data?.description).slice(0, 500)}</p>
+            <p>{cleanDescriptionText(data?.description).slice(500, 1500)}</p>
           </div>
           <div className={s.contactContainer}>
             <h2>Kontakt</h2>

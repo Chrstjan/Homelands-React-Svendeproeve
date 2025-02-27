@@ -3,6 +3,8 @@ import { UserContext } from "../../context/UserContext";
 import { useForm } from "react-hook-form";
 import s from "./LoginForm.module.scss";
 import { NavLink, useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
+import { Toastbar } from "../Toastbar/Toastbar";
 
 export const LoginForm = () => {
   const { user, loginUser, logoutUser } = useContext(UserContext);
@@ -15,6 +17,14 @@ export const LoginForm = () => {
   } = useForm({
     mode: "all",
   });
+
+  const notify = (success) => {
+    if (success) {
+      toast("Du er logget ind!");
+    } else {
+      toast("Bruger ikke fundet, forket username eller password");
+    }
+  };
 
   const handleFormSubmit = async (data) => {
     const { username, password } = { ...data };
@@ -36,6 +46,10 @@ export const LoginForm = () => {
 
     if (userData) {
       loginUser(userData);
+      notify(true);
+    }
+    else {
+      notify(false);
     }
   };
 
@@ -65,11 +79,12 @@ export const LoginForm = () => {
                 message: "username must be at least 5 characters",
               },
             })}
-            type="text"
+            type="email"
             id="username"
             name="username"
             placeholder="Brugernavn"
           />
+          {errors.email ? <span>{errors.username.message}</span> : null}
           <input
             {...register("password", {
               required: "password is required",
@@ -86,6 +101,7 @@ export const LoginForm = () => {
             name="password"
             placeholder="Adgangskode"
           />
+          {errors.email ? <span>{errors.password.message}</span> : null}
           <span className={s.buttonContainer}>
             <input type="submit" value="Login" />
             <input type="reset" value="Annuller" />
@@ -97,6 +113,7 @@ export const LoginForm = () => {
           <button onClick={() => logoutUser()}>Log ud</button>
         </span>
       )}
+      <Toastbar />
     </>
   );
 };
