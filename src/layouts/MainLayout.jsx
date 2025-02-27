@@ -13,8 +13,10 @@ export const MainLayout = () => {
     <>
       <Header>
         <Logo />
-        <Nav isNavHidden={isNavHidden} />
-        <Searchbar isNavHidden={isNavHidden} />
+        <span>
+          <Nav isNavHidden={isNavHidden} />
+          <Searchbar isNavHidden={isNavHidden} />
+        </span>
         <BurgerMenu setIsNavHidden={setIsNavHidden} />
       </Header>
       <Outlet />

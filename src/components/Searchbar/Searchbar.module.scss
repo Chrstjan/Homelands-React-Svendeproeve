@@ -28,6 +28,11 @@
     border-radius: 4px;
     margin-left: -1rem;
 
+    @media (min-width: 1200px) {
+      width: 2vw;
+      padding: 0;
+    }
+
     svg {
       font-size: 17px;
       color: $white;

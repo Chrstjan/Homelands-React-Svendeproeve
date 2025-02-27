@@ -5,6 +5,7 @@
 .cardStyling {
   @include m.flexBox(column, center, center, 1rem);
   @extend %trebuchet;
+  background: #ffffff67;
   header {
     @include m.flexBox(column, center, center, 1.5rem);
     .addressContainer {

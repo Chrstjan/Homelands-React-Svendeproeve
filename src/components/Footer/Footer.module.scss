@@ -11,6 +11,11 @@
   color: $white;
   @extend %trebuchet;
   padding-bottom: 1.5rem;
+  
+  @media (min-width: 1200px) {
+    flex-direction: row;
+    justify-content: space-evenly;
+  }
 
   p {
     margin: 0;

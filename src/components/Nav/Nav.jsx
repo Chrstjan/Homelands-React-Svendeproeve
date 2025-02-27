@@ -30,15 +30,11 @@ export const Nav = ({ isNavHidden }) => {
           isNavHidden ? s.hiddenStyling : s.navStyling
         }`}
       >
-        {paths.map((item) => {
+        {paths?.map((item) => {
           return (
-            <>
-              {item?.name ? (
-                <li key={item.id}>
-                  <NavLink to={item.path}>{item.name}</NavLink>
+            <li key={item?.id}>
+                  <NavLink to={item?.path}>{item?.name}</NavLink>
                 </li>
-              ) : null}
-            </>
           );
         })}
       </ul>

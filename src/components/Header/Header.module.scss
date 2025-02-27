@@ -5,4 +5,18 @@
     @include m.flexBox(column, center, center, 0.5rem);
     background: $black;
     width: 100vw;
+
+    @media (min-width: 1200px) {
+        flex-direction: row;
+        justify-content: space-between;
+        padding-left: 2rem;
+
+        span {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            gap: 2rem;
+            padding-right: 5rem;
+        }
+    }
 }

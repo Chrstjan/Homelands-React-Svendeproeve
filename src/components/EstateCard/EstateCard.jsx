@@ -9,9 +9,16 @@ import { formatPrice } from "../../helpers/formatPrice";
 
 export const EstateCard = ({ data, type, canLike, canDislike }) => {
   const { user } = useContext(UserContext);
-  const navigate = useNavigate();
-  const notify = (message) => toast(message);
   const [estates, setEstates] = useState();
+  const navigate = useNavigate();
+
+  const notify = (success) => {
+    if (success) {
+      toast("Bolig tilføjet til favoritter");
+    } else {
+      toast("Du skal være logget ind for at kunne tilføje til favoritter");
+    }
+  };
 
   useEffect(() => {
     setEstates(data);
@@ -45,7 +52,7 @@ export const EstateCard = ({ data, type, canLike, canDislike }) => {
     const likeData = await res.json();
 
     if (likeData?.status == "Ok") {
-      notify("Bolig tilføjet til favoritter");
+      notify(true);
     }
   };
 
@@ -64,7 +71,6 @@ export const EstateCard = ({ data, type, canLike, canDislike }) => {
       let allEstates = [...estates];
       let filteredEstates = allEstates.filter((item) => item?.home_id !== id);
       setEstates(filteredEstates);
-      notify("Bolig fjernet fra favoritter");
     }
   };
 

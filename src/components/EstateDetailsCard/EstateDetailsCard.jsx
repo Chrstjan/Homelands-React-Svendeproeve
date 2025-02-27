@@ -34,7 +34,13 @@ export const EstateDetailsCard = ({ data }) => {
     setModalContent("location");
   };
 
-  const notify = () => toast("Bolig tilføjet til favoritter");
+  const notify = (success) => {
+    if (success) {
+      toast("Bolig tilføjet til favoritter");
+    } else {
+      toast("Du skal være logget ind for at kunne tilføje til favoritter");
+    }
+  };
 
   const handleLikeClick = async (id) => {
     const body = new URLSearchParams();
@@ -48,10 +54,16 @@ export const EstateDetailsCard = ({ data }) => {
       body: body,
     });
 
+    if(!res.status=="500") {
+      notify(false);
+      console.log("error");
+      
+    }
+
     const likeData = await res.json();
 
     if (likeData?.status == "Ok") {
-      notify();
+      notify(true);
     }
   };
 
