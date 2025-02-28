@@ -9,7 +9,7 @@ header {
 }
 
 .wrapperStyling {
-  &.estateShowcase {
+  &.estatesShowcase {
     margin-top: -4rem;
     z-index: 99;
 
@@ -17,6 +17,13 @@ header {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
       gap: 0.1rem;
+    }
+  }
+
+  &.estateShowcase {
+    @media (min-width: 1200px) {
+      margin-top: -11rem;
+    z-index: 99;
     }
   }
 
@@ -36,6 +43,12 @@ header {
     @media (min-width: 1200px) {
       min-height: 80vh;
       margin: 1.5rem 3rem;
+    }
+  }
+
+  &.favoritDashboard {
+    @media (min-width: 1200px) {
+      margin-left: 2rem;
     }
   }
 

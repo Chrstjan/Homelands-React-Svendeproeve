@@ -28,6 +28,10 @@
     border-radius: 4px;
     margin-left: -1rem;
 
+    &:hover {
+      background: #cf3b3b;
+    }
+
     @media (min-width: 1200px) {
       width: 2vw;
       padding: 0;

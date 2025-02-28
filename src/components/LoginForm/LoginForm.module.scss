@@ -38,6 +38,10 @@
 
     @media (min-width: 1200px) {
       width: 28vw;
+
+      @media (min-width: 1400px) {
+        width: 25vw;
+      }
     }
   }
 

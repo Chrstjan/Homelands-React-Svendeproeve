@@ -18,7 +18,7 @@ export const EstatePage = () => {
           <Slider thumbnail={data?.item?.images[0]?.filename?.large} />
         ) : null}
       </Wrapper>
-      <Wrapper>
+      <Wrapper type="estateShowcase">
         {data && data?.item ? <EstateDetailsCard data={data?.item} /> : null}
       </Wrapper>
     </>

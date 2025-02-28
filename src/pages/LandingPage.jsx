@@ -40,7 +40,7 @@ export const LandingPage = () => {
       <Wrapper>
         <Slider />
       </Wrapper>
-      <Wrapper type="estateShowcase">
+      <Wrapper type="estatesShowcase">
         {estates && estates?.length > 0 ? (
           <EstateCard data={estates} canLike />
         ) : null}

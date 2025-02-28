@@ -17,6 +17,10 @@
     justify-content: space-evenly;
     padding-bottom: 0;
 
+    @media (min-width: 1400px) {
+      gap: 20rem;
+    }
+
     .leftContainer {
       display: flex;
       flex-direction: row;
@@ -33,6 +37,7 @@
   .logoContainer {
     @extend %odibee;
     font-size: 20px;
+    text-align: center
   }
 
   .contactContainer {

@@ -12,12 +12,22 @@
   position: relative;
   z-index: 99;
 
+  &:hover {
+    scale: 1.05;
+    cursor: pointer;
+    background: #d3d0d087;
+    padding: 1.2rem;
+  }
+
   @media (min-width: 1200px) {
     width: 24vw;
   }
 
   img {
     width: 100%;
+
+    @media (min-width: 1200px) {
+    }
   }
 
   p {
@@ -34,6 +44,10 @@
       right: 5%;
       top: 55%;
       z-index: 999;
+
+      @media (min-width: 1200px) {
+        top: 60%;
+      }
 
       svg {
         font-size: 20px;

@@ -172,6 +172,7 @@ export const EstateDetailsCard = ({ data }) => {
               </span>
             </div>
           </div>
+          <div className={s.bottomContainer}>
           <div className={s.descriptionContainer}>
             <p>{cleanDescriptionText(data?.description).slice(0, 500)}</p>
             <p>{cleanDescriptionText(data?.description).slice(500, 1500)}</p>
@@ -189,6 +190,7 @@ export const EstateDetailsCard = ({ data }) => {
                 <p>Email: {data?.staff?.email}</p>
               </figcaption>
             </figure>
+          </div>
           </div>
         </figcaption>
       </figure>

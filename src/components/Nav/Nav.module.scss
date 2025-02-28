@@ -27,6 +27,10 @@
       color: $white;
       text-decoration: none;
       font-size: 25px;
+
+      &.activeLink {
+        color: #cf3b3b;
+      }
     }
   }
 }

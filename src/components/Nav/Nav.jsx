@@ -33,7 +33,7 @@ export const Nav = ({ isNavHidden }) => {
         {paths?.map((item) => {
           return (
             <li key={item?.id}>
-                  <NavLink to={item?.path}>{item?.name}</NavLink>
+                  <NavLink className={({isActive}) => isActive ? s.activeLink : ''} to={item?.path}>{item?.name}</NavLink>
                 </li>
           );
         })}

@@ -33,7 +33,7 @@ export const DashboardPage = () => {
       >
         <UserReview />
       </Wrapper>
-      <Wrapper text="Favoritter">
+      <Wrapper type="favoritDashboard" text="Favoritter">
         {favoriteEstates && favoriteEstates.length > 0 ? (
           <EstateCard data={favoriteEstates} canDislike />
         ) : null}

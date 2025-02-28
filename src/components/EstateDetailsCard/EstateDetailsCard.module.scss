@@ -5,10 +5,33 @@
 .cardStyling {
   @include m.flexBox(column, center, center, 1rem);
   @extend %trebuchet;
-  background: #ffffff67;
+  background: #ffffffdb;
+  border: 2px solid #6d64645d;
+  border-radius: 6px;
+  padding: 1rem 2rem;
+
+  @media (min-width: 1200px) {
+    padding: 0;
+    width: 80vw;
+    margin-left: 12rem;
+  }
+
   header {
     @include m.flexBox(column, center, center, 1.5rem);
+    width: 100%;
+    background: #ffffffdb;
+    @media (min-width: 1200px) {
+      flex-direction: row;
+      justify-content: space-evenly;
+      gap: 12rem;
+    }
     .addressContainer {
+
+      @media (min-width: 1200px) {
+        h2 {
+          text-align: left;
+        }
+      }
       p {
         margin: 0;
         margin-bottom: 0.5rem;
@@ -42,6 +65,20 @@
     .infoContainer {
       @include m.flexBox(column, center, center, 1rem);
 
+      @media (min-width: 1200px) {
+        flex-direction: row;
+        justify-content: space-evenly;
+        gap: 1rem;
+
+        .middleContainer {
+          margin-left: 11rem;
+        }
+
+        .rightContainer {
+          margin-left: 13rem;
+        }
+      }
+
       .infoBar {
         @include m.flexBox(row, space-between, center, 1rem);
 
@@ -51,10 +88,33 @@
       }
     }
 
+    .bottomContainer {
+      @include m.flexBox(column, center, flex-start, 1rem);
+      width: 100%;
+
+      @media (min-width: 1200px) {
+        flex-direction: row;
+        justify-content: space-evenly;
+        gap: 20rem;
+
+        .descriptionContainer {
+          p {
+            width: 500px;
+          }
+        }
+      }
+
+    }
+
     .contactContainer {
       figure {
         img {
           width: 100%;
+
+          @media (min-width: 1200px) {
+            width: 80%;
+            height: 40vh;
+          }
         }
 
         h4 {
