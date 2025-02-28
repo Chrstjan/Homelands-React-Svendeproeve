@@ -2,6 +2,7 @@
 
 .sliderStyling {
   z-index: 9;
+  border-bottom: 10px solid $black;
   img {
     width: 100%;
     object-fit: cover;
@@ -12,8 +13,6 @@
       height: 50vh;
     }
   }
-  border-bottom: 10px solid $black;
-
   @media (min-width: 1200px) {
     border-bottom: 16px solid $black;
   }
