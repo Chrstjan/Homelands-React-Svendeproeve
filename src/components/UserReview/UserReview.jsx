@@ -58,6 +58,7 @@ export const UserReview = () => {
           </span>
         );
       })}
+      {reviews?.length == 0 ? <h2>Du har ingen anmeldelser</h2> : null}
       <Toastbar />
     </div>
   );

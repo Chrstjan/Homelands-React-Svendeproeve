@@ -21,9 +21,9 @@ header {
   }
 
   &.estateShowcase {
+    z-index: 99;
     @media (min-width: 1200px) {
       margin-top: -11rem;
-    z-index: 99;
     }
   }
 

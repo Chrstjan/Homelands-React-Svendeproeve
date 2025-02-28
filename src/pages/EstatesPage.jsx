@@ -103,7 +103,7 @@ export const EstatesPage = () => {
           <FaRegHeart onClick={() => getFavorites()} />
         ) : null}
       </Wrapper>
-      <Wrapper type="estateShowcase">
+      <Wrapper type="estatesShowcase">
         {estates && estates.length > 0 ? (
           <EstateCard data={filteredEstates} canLike />
         ) : null}

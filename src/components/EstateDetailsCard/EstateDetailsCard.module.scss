@@ -19,8 +19,8 @@
   header {
     @include m.flexBox(column, center, center, 1.5rem);
     width: 100%;
-    background: #ffffffdb;
     @media (min-width: 1200px) {
+      background: #ffffffdb;
       flex-direction: row;
       justify-content: space-evenly;
       gap: 12rem;

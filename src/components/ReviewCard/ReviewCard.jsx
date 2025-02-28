@@ -12,7 +12,7 @@ export const ReviewCard = ({ setWriteReview }) => {
   const { user } = useContext(UserContext);
 
   useEffect(() => {
-    if (data) {
+    if (data && data?.items) {
       console.log(data);
       
       const randomReview =
